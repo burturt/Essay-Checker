@@ -984,7 +984,6 @@ Thru
 try and
 thusly
 Utilize
-very
 really quite
 True
 `
