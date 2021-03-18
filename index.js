@@ -32,11 +32,16 @@ function check4stuff() {
         setTimeout(function () {
             document.body.toggleAttribute("loading");
             
-            found = (klisheysFound + dedFound).length == 0 ? `
-                <div class="clean">
-                🍪 No clichés or dead words found!
-                </div>
-            ` : "";
+            if ((klisheysFound + dedFound).length == 0) {
+                found = `
+                    <div class="clean">
+                    🍪 No clichés or dead words found!
+                    </div>
+                `;
+
+                actuallyFire();
+            }
+            else found = "";
             
             if (klisheysFound.length > 0)
                 found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
@@ -44,7 +49,6 @@ function check4stuff() {
                 found += "<h3 lighter>Dead words found:</h3>" + dedFound;
             
             document.getElementById("found").innerHTML = found;
-            actuallyFire();
         }, 1000);
         
     })
