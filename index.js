@@ -16,7 +16,7 @@ function check4stuff() {
             var found = "<h3 lighter>Cliches found:</h3>";
             klisheys.forEach(klishey => {
                 if (lowered.includes(klishey.toLowerCase())) {
-                    found += "<br>" + klishey;
+                    found += "<li>" + klishey + "</li>";
                 }
             });
 
