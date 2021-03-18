@@ -113,4 +113,8 @@ li {
 pre {
   white-space: normal;
 }
+
+code {
+  margin-bottom: 10vh;
+}
 /*# sourceMappingURL=main.css.map */

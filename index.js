@@ -845,6 +845,97 @@ Speaking directly to the reader
 To evoke an emotional response
 Uses diction
 Able to relate to
+Afraid
+Angry
+Bad
+Beautiful
+Big
+Bright
+Capable
+Clean
+Clever
+Cold
+Conventional
+Dirty
+Dry
+Eager
+Fast
+Fierce
+Good
+Happy
+Hot
+Hungry
+Large
+Lively
+Loved
+Neat
+Old
+Poor
+Pretty
+Quiet
+Risky
+Roomy
+Rude
+Serious
+Small
+Strong
+Stupid
+Tasty
+Thin
+Tired
+Ugly
+Valuable
+Weak
+Wet
+Wicked
+Wise
+Worried
+And also
+As to whether
+Basically
+Essentially
+totally
+Being that
+being as
+Considered to be
+Due to the fact that
+Each and every
+Now and days
+Equally as
+Etc.
+He
+She
+Firstly
+Secondly
+Thirdly
+Got
+Ought
+Interesting
+In terms of
+Irregardless
+Kind of
+Sort of
+Literally
+Just
+Nature
+Necessitate
+On account of
+Only
+orientate
+Plus
+Point in time
+Previous
+So as to
+Suppose to
+The reason why is because
+Thru
+'til
+try and
+thusly
+Utilize
+very
+really quite
+True
 `
     .split("\n").filter(Boolean);
 
