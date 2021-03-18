@@ -491,7 +491,8 @@ off the beaten track
 off the cuff
 old as the hills
 older and wiser
-once bitten, twice shy
+once bitten
+twice shy
 once in a blue moon
 one fell swoop
 one in a million
@@ -554,23 +555,23 @@ quick and the dead
 quid pro quo
 quiet before the storm
 race against time
-rack and ruin, going to
-raining cats and dogs (and hailing taxis)
+rack and ruin
+raining cats and dogs
 rat race
 read my lips
-red rag to a bull, like a
+red rag to a bull
 reinventing the wheel
-reliable source (the reporter's friend)
+reliable source
 resounding silence
 right as rain
 rings a bell
 rings true
 risk life and limb
-rock the boat, don't
+rock the boat
 Rome wasn't built in a day
-rose by any other name, a
-rotten apple in a barrel, one
-rough diamond, a
+rose by any other name
+rotten apple in a barrel
+one rough diamond
 ruffled feathers
 ruled with a rod of iron
 run it up the flagpole (and see who salutes)
@@ -586,12 +587,12 @@ second to none
 seething cauldron
 see eye to eye
 see how the land lies
-see the wood for the trees, can't
+see the wood for the trees
 sell like hot cakes
 serious money
 set in stone
 set in concrete
-shape or form, in any
+in any shape or form
 share and share alike
 ships that pass in the night
 shoot yourself in the foot
@@ -704,7 +705,8 @@ vicious circle
 vote with their feet
 wages of sin (is death)
 waited on hand and footwarts and all
-waste not, want not
+waste not
+want not
 water under the bridge
 wealth of experience
 wealth of material
