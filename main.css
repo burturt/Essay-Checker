@@ -117,4 +117,10 @@ pre {
 .spacing {
   height: 10vh;
 }
+
+.clean {
+  background: #18a8373b;
+  padding: 25px;
+  border-radius: 10px;
+}
 /*# sourceMappingURL=main.css.map */

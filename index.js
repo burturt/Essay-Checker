@@ -5,39 +5,89 @@ function reset() {
 
 function check4stuff() {
     if (document.body.getAttributeNames().includes("loading")) return;
-
+    
     navigator.clipboard.readText()
-        .then(text => {            
-            const lowered = text.toLowerCase();
-
-            document.body.toggleAttribute("loading");
-            document.getElementById("found").innerHTML = "Checking essay...";
-
-            var found = "<h3 lighter>Clichés found:</h3>";
-            klisheys.forEach(klishey => {
-                if (lowered.includes(klishey.toLowerCase())) {
-                    found += "<li>" + klishey + "</li>";
-                }
-            });
-
-            found += "<h3 lighter>Dead words found:</h3>";
-            deds.forEach(dedWord => {
-                const re = new RegExp(`\b${dedWord.toLowerCase()}\b`);
-                if (re.test(lowered)) {
-                    found += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
-                }
-            });
-
-            // SHHHH.
-            setTimeout(function () {
-                document.body.toggleAttribute("loading");
-                document.getElementById("found").innerHTML = found;
-            }, 1000);
-            
-        })
-        .catch(error => {
-            document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
+    .then(text => {            
+        const lowered = text.toLowerCase();
+        
+        document.body.toggleAttribute("loading");
+        document.getElementById("found").innerHTML = "Checking essay...";
+        
+        let klisheysFound = "";
+        klisheys.forEach(klishey => {
+            if (lowered.includes(klishey.toLowerCase())) {
+                klisheysFound += "<li>" + klishey + "</li>";
+            }
         });
+        
+        let dedFound = "";
+        deds.forEach(dedWord => {
+            const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
+            if (re.test(lowered)) {
+                dedFound += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
+            }
+        });
+        
+        // SHHHH.
+        setTimeout(function () {
+            document.body.toggleAttribute("loading");
+            
+            found = (klisheysFound + dedFound).length == 0 ? `
+                <div class="clean">
+                🍪 No clichés or dead words found!
+                </div>
+            ` : "";
+            
+            if (klisheysFound.length > 0)
+                found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
+            if (dedFound.length > 0)
+                found += "<h3 lighter>Dead words found:</h3>" + dedFound;
+            
+            document.getElementById("found").innerHTML = found;
+            actuallyFire();
+        }, 1000);
+        
+    })
+    .catch(error => {
+        document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
+    });
+}
+
+/// Confetti
+var count = 400;
+var defaults = {
+    origin: { y: 0.7 }
+};
+
+function fire(particleRatio, opts) {
+    confetti(Object.assign({}, defaults, opts, {
+        particleCount: Math.floor(count * particleRatio)
+    }));
+}
+
+function actuallyFire() {
+    fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
+    });
+    fire(0.2, {
+        spread: 60,
+    });
+    fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8
+    });
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2
+    });
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+    });   
 }
 
 
@@ -749,7 +799,7 @@ you're breaking my heart
 you're only young once
 walking on broken glass
 `
-    .split("\n").filter(Boolean);
+.split("\n").filter(Boolean);
 
 const deds = `
 a lot
@@ -938,5 +988,5 @@ very
 really quite
 True
 `
-    .split("\n").filter(Boolean);
+.split("\n").filter(Boolean);
 
