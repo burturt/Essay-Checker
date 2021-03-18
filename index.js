@@ -22,7 +22,7 @@ function check4stuff() {
 
             found += "<h3 lighter>Dead words found:</h3>";
             deds.forEach(dedWord => {
-                const re = new RegExp(`[^a-z]${dedWord.toLowerCase()}`);
+                const re = new RegExp(`[^a-z]+?${dedWord.toLowerCase()}`);
                 if (re.test(lowered)) {
                     found += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
                 }
