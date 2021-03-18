@@ -41,7 +41,7 @@ function check4stuff() {
 }
 
 
-var klisheys = `
+const klisheys = `
 accidentally on purpose
 accident waiting to happen
 actions speak louder than words
@@ -750,7 +750,7 @@ walking on broken glass
 `
     .split("\n").filter(Boolean);
 
-var deds = `
+const deds = `
 a lot
 lots
 seems

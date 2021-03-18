@@ -32,7 +32,7 @@ body {
   margin: 0;
 }
 
-.title img {
+.loads {
   opacity: 0;
 }
 
@@ -41,7 +41,7 @@ body[loading] .title h1 {
           transform: translateX(22px);
 }
 
-body[loading] .title img {
+body[loading] .loads {
   display: inherit;
   opacity: 1;
 }
