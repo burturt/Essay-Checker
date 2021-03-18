@@ -13,7 +13,7 @@ function check4stuff() {
             document.body.toggleAttribute("loading");
             document.getElementById("found").innerHTML = "Checking essay...";
 
-            var found = "<h3 lighter>Cliches found:</h3>";
+            var found = "<h3 lighter>Clichés found:</h3>";
             klisheys.forEach(klishey => {
                 if (lowered.includes(klishey.toLowerCase())) {
                     found += "<li>" + klishey + "</li>";
