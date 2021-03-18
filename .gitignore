@@ -1,0 +1,5 @@
+.vercel
+.vscode
+*.map
+*.scss
+.DS_Store
