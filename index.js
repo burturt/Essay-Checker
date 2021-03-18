@@ -601,7 +601,6 @@ shot across the bows
 sick and tired
 sick as a parrot
 sight for sore eyes
-signed
 sealed and delivered
 silent majority
 simmering hatred
