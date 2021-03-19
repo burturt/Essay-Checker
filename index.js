@@ -5,9 +5,7 @@ function reset() {
 
 function check4stuff() {
     if (document.body.getAttributeNames().includes("loading")) return;
-    
-    navigator.clipboard.readText()
-    .then(text => {            
+    var text = document.getElementById("essay").value;
         const lowered = text.toLowerCase();
         
         document.body.toggleAttribute("loading");
@@ -47,10 +45,6 @@ function check4stuff() {
             actuallyFire();
         }, 1000);
         
-    })
-    .catch(error => {
-        document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
-    });
 }
 
 /// Confetti

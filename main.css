@@ -123,4 +123,8 @@ pre {
   padding: 25px;
   border-radius: 10px;
 }
+textarea {
+  width: 100%;
+  max-width: 100%;
+}
 /*# sourceMappingURL=main.css.map */
