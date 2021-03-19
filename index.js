@@ -209,6 +209,7 @@ copious notes
 crack of dawn
 crazy like a fox
 crème de la crème
+creme de la creme
 crisis of confidence
 cross that bridge when we come to it
 cry over spilt milk
@@ -624,7 +625,7 @@ rotten apple in a barrel
 one rough diamond
 ruffled feathers
 ruled with a rod of iron
-run it up the flagpole (and see who salutes)
+run it up the flagpole
 run of the mill
 run to seed
 safe and sound
@@ -690,7 +691,7 @@ take the rough with the smooth
 tarred with the same brush
 technological wizardry
 teething troublesv
-tender loving care (TLC)
+tender loving care
 tender mercies
 terra firma
 thankful for small mercies
@@ -719,8 +720,7 @@ too little
 to my dying day
 too awful to contemplate
 too terrible to contemplate
-too terrible to contemplate
-too many cooks (spoil the broth)
+too many cooks
 too numerous to mention
 torrential rain
 towering inferno
@@ -733,7 +733,7 @@ twinkling of an eye
 twisted him around her little finger
 two's company
 ultra-sophisticated
-unacceptable face of capitalism (or any other institution you want to knock)
+unacceptable face of
 unavoidable delay
 unalloyed delight
 unconscionable time
@@ -753,7 +753,7 @@ variety is the spice of life
 vested interest
 vicious circle
 vote with their feet
-wages of sin (is death)
+wages of sin
 waited on hand and footwarts and all
 waste not
 want not
@@ -766,7 +766,7 @@ weighed in the balance and found wanting
 well-earned rest
 wheels within wheels
 when the cats away the mice will play
-when the going gets tough (the tough get going)
+when the going gets tough
 whiter than white
 winter of discontent
 with all due respect
@@ -798,6 +798,8 @@ your guess is as good as mine
 you're breaking my heart
 you're only young once
 walking on broken glass
+spoil the broth
+the tough get going
 `
 .split("\n").filter(Boolean);
 
