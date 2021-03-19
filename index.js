@@ -39,15 +39,17 @@ function check4stuff() {
 	    // SHHHH.
 	    setTimeout(function () {
 	        document.body.toggleAttribute("loading");
+
+	        let found = "";
 	        
-          if ((klisheysFound + dedFound + kontractionzFound).length == 0) {
-            found =  `
-	            <div class="clean">
-	            🍪 No clichés, contractions, or dead words found!
-	            </div>
-	          `;
-            actuallyFire();
-          }
+		    if ((klisheysFound + dedFound + kontractionzFound).length == 0) {
+		        found =  `
+		            <div class="clean">
+		            🍪 No clichés, contractions, or dead words found!
+		            </div>
+		        `;
+		        actuallyFire();
+		    }
 	        
 	        if (klisheysFound.length > 0)
 	            found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
