@@ -124,6 +124,7 @@ pre {
   border-radius: 10px;
 }
 textarea {
+  width: 100%;
   background: rgb(233, 233, 233);
   border: 0px;
   border-radius: 10px;
