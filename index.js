@@ -40,11 +40,14 @@ function check4stuff() {
 	    setTimeout(function () {
 	        document.body.toggleAttribute("loading");
 	        
-	        found = (klisheysFound + dedFound + kontractionzFound).length == 0 ? `
+          if ((klisheysFound + dedFound + kontractionzFound).length == 0) {
+            found =  `
 	            <div class="clean">
 	            🍪 No clichés, contractions, or dead words found!
 	            </div>
-	        ` : "";
+	          `;
+            actuallyFire();
+          }
 	        
 	        if (klisheysFound.length > 0)
 	            found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
@@ -54,12 +57,10 @@ function check4stuff() {
 	            found += "<h3 lighter>Contractions found:</h3>" + kontractionzFound;
 	        
 	        document.getElementById("found").innerHTML = found;
-	        actuallyFire();
 	    }, 1000);
 	} catch (error) {
 		document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
 	}
-        
 }
 
 /// Confetti
