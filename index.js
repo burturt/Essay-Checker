@@ -1,6 +1,7 @@
 // Beware you may contract covid running this code.
 function reset() {
     document.getElementById("found").innerHTML = "";
+    document.getElementById("essay").value = "";
 }
 
 function check4stuff() {
