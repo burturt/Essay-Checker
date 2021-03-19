@@ -5,45 +5,49 @@ function reset() {
 
 function check4stuff() {
     if (document.body.getAttributeNames().includes("loading")) return;
-    var text = document.getElementById("essay").value;
-    const lowered = text.toLowerCase();
-    
-    document.body.toggleAttribute("loading");
-    document.getElementById("found").innerHTML = "Checking essay...";
-    
-    let klisheysFound = "";
-    klisheys.forEach(klishey => {
-        if (lowered.includes(klishey.toLowerCase())) {
-            klisheysFound += "<li>" + klishey + "</li>";
-        }
-    });
-    
-    let dedFound = "";
-    deds.forEach(dedWord => {
-        const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
-        if (re.test(lowered)) {
-            dedFound += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
-        }
-    });
-    
-    // SHHHH.
-    setTimeout(function () {
-        document.body.toggleAttribute("loading");
-        
-        found = (klisheysFound + dedFound).length == 0 ? `
-            <div class="clean">
-            🍪 No clichés or dead words found!
-            </div>
-        ` : "";
-        
-        if (klisheysFound.length > 0)
-            found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
-        if (dedFound.length > 0)
-            found += "<h3 lighter>Dead words found:</h3>" + dedFound;
-        
-        document.getElementById("found").innerHTML = found;
-        actuallyFire();
-    }, 100);
+    try {
+	    var text = document.getElementById("essay").value;
+	    const lowered = text.toLowerCase();
+	    
+	    document.body.toggleAttribute("loading");
+	    document.getElementById("found").innerHTML = "Checking essay...";
+	    
+	    let klisheysFound = "";
+	    klisheys.forEach(klishey => {
+	        if (lowered.includes(klishey.toLowerCase())) {
+	            klisheysFound += "<li>" + klishey + "</li>";
+	        }
+	    });
+	    
+	    let dedFound = "";
+	    deds.forEach(dedWord => {
+	        const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
+	        if (re.test(lowered)) {
+	            dedFound += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
+	        }
+	    });
+	    
+	    // SHHHH.
+	    setTimeout(function () {
+	        document.body.toggleAttribute("loading");
+	        
+	        found = (klisheysFound + dedFound).length == 0 ? `
+	            <div class="clean">
+	            🍪 No clichés or dead words found!
+	            </div>
+	        ` : "";
+	        
+	        if (klisheysFound.length > 0)
+	            found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
+	        if (dedFound.length > 0)
+	            found += "<h3 lighter>Dead words found:</h3>" + dedFound;
+	        
+	        document.getElementById("found").innerHTML = found;
+	        actuallyFire();
+	    }, 100);
+	} catch (error) {
+		document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
+	}
         
 }
 
