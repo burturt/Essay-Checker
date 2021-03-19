@@ -42,7 +42,7 @@ function check4stuff() {
 	        
 	        found = (klisheysFound + dedFound + kontractionzFound).length == 0 ? `
 	            <div class="clean">
-	            🍪 No clichés or dead words found!
+	            🍪 No clichés, contractions, or dead words found!
 	            </div>
 	        ` : "";
 	        
