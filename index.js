@@ -24,15 +24,23 @@ function check4stuff() {
 	    deds.forEach(dedWord => {
 	        const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
 	        if (re.test(lowered)) {
-	            dedFound += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
+	            dedFound += `<li><a class='word' target=_blank href="https://www.thesaurus.com/browse/${dedWord}">` + dedWord + "</a></li>";
 	        }
 	    });
 	    
+	    let kontractionzFound = "";
+	    kontractionz.forEach(kontraction => {
+	        const re = new RegExp(`\\b${kontraction.toLowerCase()}\\b`);
+	        if (re.test(lowered)) {
+	            kontractionzFound += "<li>" + kontraction + "</li>";
+	        }
+	    });
+
 	    // SHHHH.
 	    setTimeout(function () {
 	        document.body.toggleAttribute("loading");
 	        
-	        found = (klisheysFound + dedFound).length == 0 ? `
+	        found = (klisheysFound + dedFound + kontractionzFound).length == 0 ? `
 	            <div class="clean">
 	            🍪 No clichés or dead words found!
 	            </div>
@@ -42,6 +50,8 @@ function check4stuff() {
 	            found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
 	        if (dedFound.length > 0)
 	            found += "<h3 lighter>Dead words found:</h3>" + dedFound;
+	        if (kontractionzFound.length > 0)
+	            found += "<h3 lighter>Contractions found:</h3>" + kontractionzFound;
 	        
 	        document.getElementById("found").innerHTML = found;
 	        actuallyFire();
@@ -988,5 +998,118 @@ Utilize
 really quite
 True
 `
+.split("\n").filter(Boolean);
+
+const kontractionz = `
+ain't
+aren't
+can't
+could've
+couldn't
+couldn't've
+didn't
+doesn't
+don't
+hadn't
+hadn't've
+hasn't
+haven't
+he'd
+he'd've
+he'll
+he's
+how'd
+how'll
+how's
+I'd
+I'd've
+I'll
+I'm
+I've
+isn't
+it'd
+it'd've
+it'll
+it's
+let's
+ma'am
+mightn't
+mightn't've
+might've
+mustn't
+must've
+needn't
+not've
+o'clock
+oughtn't
+'ow's'at
+shan't
+she'd
+she'd've
+she'll
+she's
+should've
+shouldn't
+shouldn't've
+somebody'd
+somebody'd've
+somebody'll
+somebody's
+someone'd
+someone'd've
+someone'll
+someone's
+something'd
+something'd've
+something'll
+something's
+that'll
+that's
+there'd
+there'd've
+there're
+there's
+they'd
+they'd've
+they'll
+they're
+they've
+'twas
+wasn't
+we'd
+we'd've
+we'll
+we're
+we've
+weren't
+what'll
+what're
+what's
+what've
+when's
+where'd
+where's
+where've
+who'd
+who'd've
+who'll
+who're
+who's
+who've
+why'll
+why're
+why's
+won't
+would've
+wouldn't
+wouldn't've
+y'all
+y'all'll
+y'all'd've
+you'd
+you'd've
+you'll
+you're
+you've`
 .split("\n").filter(Boolean);
 
