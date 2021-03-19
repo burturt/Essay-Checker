@@ -55,7 +55,7 @@ function check4stuff() {
 	        
 	        document.getElementById("found").innerHTML = found;
 	        actuallyFire();
-	    }, 100);
+	    }, 1000);
 	} catch (error) {
 		document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
 	}
