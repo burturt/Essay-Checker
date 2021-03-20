@@ -61,5 +61,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script src="index.js"></script>
+    <!-- Redirect users on github.io page to pages.dev one -->
+    <script>
+    	if (window.location.href.indexOf("github") != -1) {
+    		window.location.replace('https://essay-checker.pages.dev');
+		}
+	</script>
 </body>
 </html>
