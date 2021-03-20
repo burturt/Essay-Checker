@@ -822,8 +822,6 @@ seems
 tells
 says
 really
-basically
-literally
 get
 got
 getting
@@ -833,9 +831,7 @@ whatever
 would
 could
 should
-just
 good
-bad
 happens
 appears
 You
@@ -894,112 +890,109 @@ talks about
 society should
 when it comes to
 the book says
-In this quote
+in this quote
 this quote says
 people should
-Forces the reader to
-Makes the reader to
-Raise awareness
-Think about
+forces the reader to
+makes the reader to
+raise awareness
+think about
 reflect
 ponder
-It emphasizes
-Invites the reader
-Speaking directly to the audience
-Speaking directly to the reader
-To evoke an emotional response
-Uses diction
-Able to relate to
-Afraid
-Angry
-Bad
-Beautiful
-Big
-Bright
-Capable
-Clean
-Clever
-Cold
-Conventional
-Dirty
-Dry
-Eager
-Fast
-Fierce
-Good
-Happy
-Hot
-Hungry
-Large
-Lively
-Loved
-Neat
-Old
-Poor
-Pretty
-Quiet
-Risky
-Roomy
-Rude
-Serious
-Small
-Strong
-Stupid
-Tasty
-Thin
-Tired
-Ugly
-Valuable
-Weak
-Wet
-Wicked
-Wise
-Worried
-And also
-As to whether
-Basically
-Essentially
+it emphasizes
+invites the reader
+speaking directly to the audience
+speaking directly to the reader
+to evoke an emotional response
+uses diction
+able to relate to
+afraid
+angry
+bad
+beautiful
+big
+bright
+capable
+clean
+clever
+cold
+conventional
+dirty
+dry
+eager
+fast
+fierce
+happy
+hot
+hungry
+large
+lively
+loved
+neat
+old
+poor
+pretty
+quiet
+risky
+roomy
+rude
+serious
+small
+strong
+stupid
+tasty
+thin
+tired
+ugly
+valuable
+weak
+wet
+wicked
+wise
+worried
+and also
+as to whether
+basically
+essentially
 totally
-Being that
+being that
 being as
-Considered to be
-Due to the fact that
-Each and every
-Now and days
-Equally as
-Etc.
-He
-She
-Firstly
-Secondly
-Thirdly
-Got
-Ought
-Interesting
-In terms of
-Irregardless
-Kind of
-Sort of
-Literally
-Just
-Nature
-Necessitate
-On account of
-Only
+considered to be
+due to the fact that
+each and every
+now and days
+equally as
+etc.
+he
+she
+firstly
+secondly
+thirdly
+ought
+interesting
+in terms of
+irregardless
+kind of
+sort of
+literally
+just
+nature
+necessitate
+on account of
+only
 orientate
-Plus
-Point in time
-Previous
-So as to
-Suppose to
-The reason why is because
-Thru
+plus
+previous
+so as to
+suppose to
+the reason why is because
+thru
 'til
 try and
 thusly
-Utilize
+utilize
 really quite
-True
+true
 `
 .split("\n").filter(Boolean);
 
