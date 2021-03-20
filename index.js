@@ -44,7 +44,7 @@ function check4stuff() {
 
 		let kontractionzFound = "";
 		kontractionz.forEach(kontraction => {
-			const re = new RegExp(`\\b${kontraction.toLowerCase()}\\b`);
+			const re = new RegExp(`${kontraction.toLowerCase()}\\b`);
 			if (re.test(lowered)) {
 				kontractionzFound += "<li>" + kontraction + "</li>";
 			}
@@ -847,10 +847,10 @@ should
 good
 happens
 appears
-You
-Fun
+you
+fun
 funny
-Pretty good
+pretty good
 very
 awesome
 cool
