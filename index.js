@@ -49,8 +49,6 @@ function check4stuff() {
 		    		</div>
 	    		`;
 	    		actuallyFire();
-	    	} else {
-	    		actuallyFire();
 	    	}
 	    	
 	    	if (klisheysFound.length > 0)
