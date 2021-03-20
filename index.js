@@ -1,97 +1,118 @@
 // Beware you may contract covid running this code.
+
+// Add tabs support for textarea
+document.querySelector("textarea").addEventListener("keydown", function(e) {
+	if (e.key === "Tab") {
+		e.preventDefault();
+		const start = this.selectionStart;
+		const end = this.selectionEnd;
+
+		this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+		this.selectionStart = this.selectionEnd = start + 1;
+	}
+});
+
+
 function reset() {
-    document.getElementById("found").innerHTML = "";
+	document.getElementById("found").innerHTML = "";
+	document.getElementById("essay").value = "";
 }
 
 function check4stuff() {
-    if (document.body.getAttributeNames().includes("loading")) return;
-    
-    navigator.clipboard.readText()
-    .then(text => {            
-        const lowered = text.toLowerCase();
-        
-        document.body.toggleAttribute("loading");
-        document.getElementById("found").innerHTML = "Checking essay...";
-        
-        let klisheysFound = "";
-        klisheys.forEach(klishey => {
-            if (lowered.includes(klishey.toLowerCase())) {
-                klisheysFound += "<li>" + klishey + "</li>";
-            }
-        });
-        
-        let dedFound = "";
-        deds.forEach(dedWord => {
-            const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
-            if (re.test(lowered)) {
-                dedFound += `<li><a class='word' target=_blank href='https://www.thesaurus.com/browse/${dedWord}'>` + dedWord + "</a></li>";
-            }
-        });
-        
-        // SHHHH.
-        setTimeout(function () {
-            document.body.toggleAttribute("loading");
-            
-            if ((klisheysFound + dedFound).length == 0) {
-                found = `
-                    <div class="clean">
-                    🍪 No clichés or dead words found!
-                    </div>
-                `;
+	if (document.body.getAttributeNames().includes("loading")) return;
+	try {
+		var text = document.getElementById("essay").value;
+		const lowered = text.toLowerCase();
 
-                actuallyFire();
-            }
-            else found = "";
-            
-            if (klisheysFound.length > 0)
-                found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
-            if (dedFound.length > 0)
-                found += "<h3 lighter>Dead words found:</h3>" + dedFound;
-            
-            document.getElementById("found").innerHTML = found;
-        }, 1000);
-        
-    })
-    .catch(error => {
-        document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
-    });
+		document.body.toggleAttribute("loading");
+		document.getElementById("found").innerHTML = "Checking essay...";
+
+		let klisheysFound = "";
+		klisheys.forEach(klishey => {
+			if (lowered.includes(klishey.toLowerCase())) {
+				klisheysFound += "<li>" + klishey + "</li>";
+			}
+		});
+
+		let dedFound = "";
+		deds.forEach(dedWord => {
+			const re = new RegExp(`\\b${dedWord.toLowerCase()}\\b`);
+			if (re.test(lowered)) {
+				dedFound += `<li><a class='word' target=_blank href="https://www.thesaurus.com/browse/${dedWord}">` + dedWord + "</a></li>";
+			}
+		});
+
+		let kontractionzFound = "";
+		kontractionz.forEach(kontraction => {
+			const re = new RegExp(`${kontraction.toLowerCase()}\\b`);
+			if (re.test(lowered)) {
+				kontractionzFound += "<li>" + kontraction + "</li>";
+			}
+		});
+
+	    // SHHHH.
+	    setTimeout(function () {
+	    	document.body.toggleAttribute("loading");
+
+	    	let found = "";
+
+	    	if ((klisheysFound + dedFound + kontractionzFound).length == 0) {
+	    		found =  `
+		    		<div class="clean">
+		    		🍪 No clichés, contractions, or dead words found!
+		    		</div>
+	    		`;
+	    		actuallyFire();
+	    	}
+
+	    	if (klisheysFound.length > 0)
+	    		found += "<h3 lighter>Clichés found:</h3>" + klisheysFound;
+	    	if (dedFound.length > 0)
+	    		found += "<h3 lighter>Dead words found:</h3>" + dedFound;
+	    	if (kontractionzFound.length > 0)
+	    		found += "<h3 lighter>Contractions found:</h3>" + kontractionzFound;
+
+	    	document.getElementById("found").innerHTML = found;
+	    }, 1000);
+	} catch (error) {
+		document.getElementById("found").innerHTML = "<em red>" + error + "</em>";
+	}
 }
 
-/// Confetti
-var count = 400;
-var defaults = {
-    origin: { y: 0.7 }
+// Confetti Options
+const defaults = {
+	origin: { y: 0.7 }
 };
 
 function fire(particleRatio, opts) {
-    confetti(Object.assign({}, defaults, opts, {
-        particleCount: Math.floor(count * particleRatio)
-    }));
+	confetti(Object.assign({}, defaults, opts, {
+		particleCount: Math.floor(400 * particleRatio)
+	}));
 }
 
 function actuallyFire() {
-    fire(0.25, {
-        spread: 26,
-        startVelocity: 55,
-    });
-    fire(0.2, {
-        spread: 60,
-    });
-    fire(0.35, {
-        spread: 100,
-        decay: 0.91,
-        scalar: 0.8
-    });
-    fire(0.1, {
-        spread: 120,
-        startVelocity: 25,
-        decay: 0.92,
-        scalar: 1.2
-    });
-    fire(0.1, {
-        spread: 120,
-        startVelocity: 45,
-    });   
+	fire(0.25, {
+		spread: 26,
+		startVelocity: 55,
+	});
+	fire(0.2, {
+		spread: 60,
+	});
+	fire(0.35, {
+		spread: 100,
+		decay: 0.91,
+		scalar: 0.8
+	});
+	fire(0.1, {
+		spread: 120,
+		startVelocity: 25,
+		decay: 0.92,
+		scalar: 1.2
+	});
+	fire(0.1, {
+		spread: 120,
+		startVelocity: 45,
+	});   
 }
 
 
@@ -814,8 +835,6 @@ seems
 tells
 says
 really
-basically
-literally
 get
 got
 getting
@@ -825,15 +844,13 @@ whatever
 would
 could
 should
-just
 good
-bad
 happens
 appears
-You
-Fun
+you
+fun
 funny
-Pretty good
+pretty good
 very
 awesome
 cool
@@ -886,112 +903,254 @@ talks about
 society should
 when it comes to
 the book says
-In this quote
+in this quote
 this quote says
 people should
-Forces the reader to
-Makes the reader to
-Raise awareness
-Think about
+forces the reader to
+makes the reader to
+raise awareness
+think about
 reflect
 ponder
-It emphasizes
-Invites the reader
-Speaking directly to the audience
-Speaking directly to the reader
-To evoke an emotional response
-Uses diction
-Able to relate to
-Afraid
-Angry
-Bad
-Beautiful
-Big
-Bright
-Capable
-Clean
-Clever
-Cold
-Conventional
-Dirty
-Dry
-Eager
-Fast
-Fierce
-Good
-Happy
-Hot
-Hungry
-Large
-Lively
-Loved
-Neat
-Old
-Poor
-Pretty
-Quiet
-Risky
-Roomy
-Rude
-Serious
-Small
-Strong
-Stupid
-Tasty
-Thin
-Tired
-Ugly
-Valuable
-Weak
-Wet
-Wicked
-Wise
-Worried
-And also
-As to whether
-Basically
-Essentially
+it emphasizes
+invites the reader
+speaking directly to the audience
+speaking directly to the reader
+to evoke an emotional response
+uses diction
+able to relate to
+afraid
+angry
+bad
+beautiful
+big
+bright
+capable
+clean
+clever
+cold
+conventional
+dirty
+dry
+eager
+fast
+fierce
+happy
+hot
+hungry
+large
+lively
+loved
+neat
+old
+poor
+pretty
+quiet
+risky
+roomy
+rude
+serious
+small
+strong
+stupid
+tasty
+thin
+tired
+ugly
+valuable
+weak
+wet
+wicked
+wise
+worried
+and also
+as to whether
+basically
+essentially
 totally
-Being that
+being that
 being as
-Considered to be
-Due to the fact that
-Each and every
-Now and days
-Equally as
-Etc.
-He
-She
-Firstly
-Secondly
-Thirdly
-Got
-Ought
-Interesting
-In terms of
-Irregardless
-Kind of
-Sort of
-Literally
-Just
-Nature
-Necessitate
-On account of
-Only
+considered to be
+due to the fact that
+each and every
+now and days
+equally as
+etc.
+he
+she
+firstly
+secondly
+thirdly
+ought
+interesting
+in terms of
+irregardless
+kind of
+sort of
+literally
+just
+nature
+necessitate
+on account of
+only
 orientate
-Plus
-Point in time
-Previous
-So as to
-Suppose to
-The reason why is because
-Thru
+plus
+previous
+so as to
+suppose to
+the reason why is because
+thru
 'til
 try and
 thusly
-Utilize
+utilize
 really quite
-True
+true
+`
+.split("\n").filter(Boolean);
+
+const kontractionz = `
+'cause
+'ow's'at
+'twas
+ain't
+aren't
+can't
+can't've
+could've
+couldn't
+couldn't've
+didn't
+doesn't
+don't
+hadn't
+hadn't've
+hasn't
+haven't
+he'd
+he'd've
+he'll
+he'll've
+he's
+how'd
+how'd'y
+how'll
+how's
+i'd
+i'd've
+i'll
+i'll've
+i'm
+i've
+isn't
+it'd
+it'd've
+it'll
+it'll've
+it's
+let's
+ma'am
+mayn't
+might've
+mightn't
+mightn't've
+must've
+mustn't
+mustn't've
+needn't
+needn't've
+not've
+o'clock
+oughtn't
+oughtn't've
+sha'n't
+shan't
+shan't've
+she'd
+she'd've
+she'll
+she'll've
+she's
+should've
+shouldn't
+shouldn't've
+so's
+so've
+somebody'd
+somebody'd've
+somebody'll
+somebody's
+someone'd
+someone'd've
+someone'll
+someone's
+something'd
+something'd've
+something'll
+something's
+that'd
+that'd've
+that'll
+that's
+there'd
+there'd've
+there're
+there's
+they'd
+they'd've
+they'll
+they'll've
+they're
+they've
+to've
+wasn't
+we'd
+we'd've
+we'll
+we'll've
+we're
+we've
+weren't
+what'll
+what'll've
+what're
+what's
+what've
+when's
+when've
+where'd
+where's
+where've
+who'd
+who'd've
+who'll
+who'll've
+who're
+who's
+who've
+why'll
+why're
+why's
+why've
+will've
+won't
+won't've
+would've
+wouldn't
+wouldn't've
+y'all
+y'all'd
+y'all'd've
+y'all'll
+y'all're
+y'all've
+y'alls
+you'd
+you'd've
+you'll
+you'll've
+you're
+you've
 `
 .split("\n").filter(Boolean);
 
